@@ -19,15 +19,15 @@ http://www.springframework.org/schema/context/spring-context.xsd http://www.spri
                                 expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
 
-    <mongo:mongo-client id="mongoClient" host="127.0.0.1" port="27017" credentials="${mongo.credentials}">
+    <mongo:mongo-client id="mongoClient" host="192.168.0.17" port="27017" credentials="${mongo.credentials}">
     </mongo:mongo-client>
-    <bean id="geoMongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+    <!--<bean id="geoMongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">-->
+        <!--<constructor-arg ref="mongoClient"/>-->
+        <!--<constructor-arg name="databaseName" value="geo"/>-->
+    <!--</bean>-->
+    <bean id="p2nrMongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
         <constructor-arg ref="mongoClient"/>
-        <constructor-arg name="databaseName" value="geo"/>
-    </bean>
-    <bean id="testMongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
-        <constructor-arg ref="mongoClient"/>
-        <constructor-arg name="databaseName" value="test"/>
+        <constructor-arg name="databaseName" value="p2nr"/>
     </bean>
 
     <!--&lt;!&ndash;启用aop&ndash;&gt;-->
