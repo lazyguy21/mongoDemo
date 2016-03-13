@@ -93,10 +93,13 @@ public class GenericMongoTemplatelTest extends AbstractServiceTest {
         p2nrMongoTemplate.insert(people);
     }
     @Test
-    public void update2(){
+    public void updateArray(){
+        //$符号代表着查询条件中关于数组的部分查询出来的对应的数组下标，如果没有就是第一个
+        //这儿就是cloth数组中name字段为skirt的那个嵌套cloth的数组下标
         Query query = Query.query(where("_id").is("56e3f1a7031c0f2fcc148548")
                 .and("cloth.name").is("skirt"));
         Update update = Update.update("cloth.$.name", "skir2t");
         p2nrMongoTemplate.updateFirst(query, update, People.class);
     }
+//    @Test
 }
