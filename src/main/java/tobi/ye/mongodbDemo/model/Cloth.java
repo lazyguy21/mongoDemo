@@ -6,9 +6,28 @@ import lombok.Data;
  * Created by lazyguy on 2016-3-12.
  */
 public class Cloth {
+    private String id;
     private String name;
     private String label;
     private Double price;
+
+    @Override
+    public String toString() {
+        return "Cloth{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", label='" + label + '\'' +
+                ", price=" + price +
+                '}';
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public Cloth() {
     }

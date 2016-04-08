@@ -41,7 +41,7 @@ public class GenTest {
     }
     @Test
     public void tt(){
-
+        MongoDatabase mongoDatabase = mongoClient.getDatabase("p2nr");
     }
 
 

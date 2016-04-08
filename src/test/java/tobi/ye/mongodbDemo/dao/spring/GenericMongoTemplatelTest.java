@@ -1,4 +1,4 @@
-package tobi.ye.mongodbDemo.dao;
+package tobi.ye.mongodbDemo.dao.spring;
 
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
@@ -74,24 +74,7 @@ public class GenericMongoTemplatelTest extends AbstractServiceTest {
     public void updateNestDocumentInArray(){
 
     }
-    @Test
-    public void addNestDocument(){
-        People people = new People();
-        people.setName("Joe");
-        people.setTime(new Date());//mongoDb 默认值有么
-        people.setAge(10);
-        Cloth cloth = new Cloth("dress1","裙子1",235.123);
-        Cloth cloth1 = new Cloth("skirt1","xiao裙2",234.123);
-        Cloth cloth2 = new Cloth("shirt1","衬衫1",232.123);
-        Cloth cloth3 = new Cloth("trousers1","裤子2",123.123);
-        ArrayList list = new ArrayList();
-        list.add(cloth);
-        list.add(cloth1);
-        list.add(cloth2);
-        list.add(cloth3);
-        people.setCloth(list);
-        p2nrMongoTemplate.insert(people);
-    }
+
     @Test
     public void updateArray(){
         //$符号代表着查询条件中关于数组的部分查询出来的对应的数组下标，如果没有就是第一个
@@ -102,4 +85,11 @@ public class GenericMongoTemplatelTest extends AbstractServiceTest {
         p2nrMongoTemplate.updateFirst(query, update, People.class);
     }
 //    @Test
+//    public void insert(){
+//        Cloth cloth = new Cloth("上衣1", "clotho1", 123.32);
+//        Cloth cloth1 = new Cloth("上衣2", "clotho2", 123.32);
+//        Cloth cloth2 = new Cloth("上衣3", "clotho3", 123.32);
+//        People people = new People();
+//        p2nrMongoTemplate.insert();
+//    }
 }
